@@ -1,0 +1,201 @@
+:root {
+    --header-height: 16vh;
+    --footer-height: 12vh;
+    --page-gap: 3vh;
+    --content-top: calc(var(--header-height) + var(--page-gap));
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Comic Sans MS", "Comic Sans";
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_body {
+    background-image: url(images/contact-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contact_body .page {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 6vw;
+}
+
+.overlap_container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: min(42vw, 420px);
+    max-width: 100%;
+}
+
+.contact_image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contact_section {
+    position: absolute;
+    background-color: white;
+    border-radius: 3vw;
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-56%, -60%);
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1vh 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--header-height); /* ensure identical header height on all pages */
+    width: 100%;
+    z-index: 100;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1vw;
+    font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5vh 0;
+    line-height: 1.5;
+    width: 100%;
+    flex-shrink: 0;
+    min-height: var(--footer-height);
+}
+
+.page {
+    flex: 1;
+    margin-top: 0;
+    padding-top: var(--content-top);
+    padding-bottom: var(--page-gap);
+}
+
+.page_timeline {
+    flex: 1;
+    margin-top: 0;
+    padding-top: var(--content-top);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: var(--page-gap);
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: flex;
+    align-items: flex-start; /* keep top spacing consistent with other pages */
+    justify-content: flex-start;
+    gap: 1.5vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+a.main_title:hover {
+    color: #FF4500;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF4500;
+    text-decoration: underline;
+}
+
+section {
+    padding: 2vh 2vw;
+    margin: 0 1.5vw 1.5vh; /* top gap handled by .page padding, keeps consistent */
+    background-color: #fff;
+    border-radius: 0.5vw;
+    height: auto;          /* let sections grow with their content */
+    overflow: hidden;      /* keep floated images inside the section */
+}
+
+.variable_sections {
+    height: fit-content;
+}
+
+.vertical_section {
+    padding: 2vh 1.5vw;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 1.5vw;
+    height: calc(100vh - var(--header-height) - var(--footer-height) - (2 * var(--page-gap)) - 4vh);
+    width: auto;
+    min-width: 22vw;
+    max-width: 28vw;
+    text-align: center;
+    flex: 0 0 auto; /* card width based on content/min-width */
+    overflow-y: hidden;
+}
+
+.creations_left_section {
+    width: 50%;
+    text-align: center;
+    float: left;
+}
+
+.creations_right_section {
+    width: 50%;
+    text-align: center;
+    float: right;
+}
+
+/* keep creation page images inside their 50% columns */
+.creations_left_section img,
+.creations_right_section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.index_left_image {
+    float: left;
+    margin: 0 2vw 2vh 0;
+}
+
+.index_right_image {
+    float: right;
+    margin: 2.5vh 0 2vh 2vw; /* push right image lower and away from text */
+}
