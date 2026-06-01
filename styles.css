@@ -44,11 +44,7 @@ body {
 
 .timeline_body .vertical_section {
     scroll-snap-align: center;
-    scroll-margin-inline: 45vw;
-}
-
-.timeline_body .timeline_arrows {
-    scroll-snap-align: center;
+    scroll-margin-inline: var(--page-inline-padding);
 }
 
 /* Creations page */
@@ -234,28 +230,25 @@ footer {
 }
 
 .timeline_arrow:focus-visible {
-    background-color: #666;
+    background-color: #333;
     color: #fff;
     text-decoration: none;
-    outline: none;
+    outline: 2px solid #999;
+    outline-offset: 3px;
 }
 
-.timeline_arrow:hover {
-    background-color: #666;
-    color: #fff;
-    text-decoration: none;
+@media (hover: hover) {
+    .timeline_arrow:hover {
+        background-color: #666;
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
 .timeline_arrow:active {
     background-color: #888;
     color: #fff;
     text-decoration: none;
-}
-
-.timeline_arrow:disabled {
-    background-color: #333;
-    opacity: 0.35;
-    cursor: default;
 }
 
 .timeline_arrow_prev {
