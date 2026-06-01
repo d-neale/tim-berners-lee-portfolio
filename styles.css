@@ -252,6 +252,12 @@ footer {
     text-decoration: none;
 }
 
+.timeline_arrow:disabled {
+    background-color: #333;
+    opacity: 0.35;
+    cursor: default;
+}
+
 .timeline_arrow_prev {
     transform: rotate(180deg);
 }

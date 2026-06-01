@@ -143,10 +143,12 @@
             container.querySelectorAll(".timeline_arrows").forEach((group) => {
                 const nextBtn = group.querySelector('[data-dir="next"]');
                 const prevBtn = group.querySelector('[data-dir="prev"]');
+                const currentCard = findPrev(group, ".vertical_section");
                 const nextCard = findNext(group, ".vertical_section");
-                const prevCard = findPrev(group, ".vertical_section");
+                const prevCard = currentCard ? findPrev(currentCard, ".vertical_section") : null;
 
                 if (nextBtn) {
+                    if (!nextCard) nextBtn.disabled = true;
                     nextBtn.addEventListener("click", () => {
                         scrollToCard(nextCard);
                         // Prevent the "focused" button style from sticking after touch.
@@ -154,6 +156,7 @@
                     });
                 }
                 if (prevBtn) {
+                    if (!prevCard) prevBtn.disabled = true;
                     prevBtn.addEventListener("click", () => {
                         scrollToCard(prevCard);
                         // Prevent the "focused" button style from sticking after touch.
